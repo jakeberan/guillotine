@@ -47,6 +47,7 @@ if len(weeks) == 1:
 else:
     # print double week standings with bold title
     st.markdown('Weeks', weeks[0], '-', weeks[1], 'Standings')
+    st.markdown('Weeks', weeks[0], '-', weeks[1], 'Standings')
 
 # print rankings
 final = rank_df[['rank', 'username', 'points']].sort_values(by='rank')
