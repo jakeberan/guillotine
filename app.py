@@ -57,5 +57,5 @@ st.table(final)
 
 values = st.slider('Select a range of values',
                    value=[1,18], 
-                   min_value = 1
+                   min_value = 1,
                    max_value = 18)
