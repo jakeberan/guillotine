@@ -55,4 +55,4 @@ st.table(final)
 
 
 
-values = st.slider('Select a range of values',value=[1,18])
+values = st.slider('Select a range of values',value=[1,18], (1,18))
