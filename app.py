@@ -14,6 +14,8 @@ week_tuple = st.slider('Select Week',
                    min_value = 1,
                    max_value = 18)
 
+st.write('Weeks Selected:', week_tuple)
+
 # input week numbers
 weeks = ['5', '6']
 
