@@ -42,11 +42,11 @@ rank_df['rank'] = rank_df['points'].rank(ascending=False).astype(int)
 
 if len(weeks) == 1:
     # print single week standings with bold title
-    st.write('Week', weeks[0], 'Standings')
+    st.subheader('Week', weeks[0], 'Standings')
   
 else:
     # print double week standings with bold title
-    st.write('Weeks', weeks[0], '-', weeks[1], 'Standings')
+    st.subheader('Weeks', weeks[0], '-', weeks[1], 'Standings')
 
 # print rankings
 final = rank_df[['rank', 'username', 'points']].sort_values(by='rank')
@@ -55,7 +55,4 @@ st.table(final)
 
 
 
-values = st.slider(
-    'Select a range of values',
-    1, 18.0, (5, 6))
-st.write('Values:', values)
+values = st.slider('Select a range of values',value=[1,18])
