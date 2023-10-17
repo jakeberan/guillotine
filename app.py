@@ -5,6 +5,9 @@ import json
 from pandas import json_normalize
 import requests
 
+# title
+st.header('Cedarburg Guillotine')
+
 # return week slider
 values = st.slider('Select Week',
                    value=[1,18], 
