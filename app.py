@@ -65,5 +65,5 @@ st.subheader('Standings')
 # print rankings
 final = rank_df[['rank', 'username', 'points']].sort_values(by='rank')
 
-st.table(final)
+st.table(final[ final['points'] <> 0])
 
