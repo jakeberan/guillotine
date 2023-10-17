@@ -20,7 +20,8 @@ weeks = ['5', '6']
 weeks = [str(i) for i in range(week_tuple[0], week_tuple[1] + 1)]
 
 # eliminated owners
-cut_owners = ['TheEvilNarwhal', 'reinbow']
+# cut_owners = ['TheEvilNarwhal', 'reinbow']
+cut_owners = []
 
 # grab owner mapping
 guill_owners = pd.read_csv('guillotine_owners.csv')
