@@ -46,7 +46,7 @@ rank_df['rank'] = rank_df['points'].rank(ascending=False).astype(int)
 
 # else:
 #     # print double week standings with bold title
-#     st.write('Weeks', weeks[0], '-', weeks[1], 'Standings')
+     st.write('Weeks', weeks[0], '-', weeks[1], 'Standings')
 #     st.write('Weeks', weeks[0], '-', weeks[1], 'Standings')
 
 # print rankings
