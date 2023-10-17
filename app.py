@@ -9,13 +9,15 @@ import requests
 st.header('Cedarburg Guillotine')
 
 # return week slider
-values = st.slider('Select Week',
+week_tuple = st.slider('Select Week',
                    value=[1,18], 
                    min_value = 1,
                    max_value = 18)
 
 # input week numbers
 weeks = ['5', '6']
+
+weeks = [str(i) for i in range(week_tuple[0], week_tuple[1] + 1)]
 
 # eliminated owners
 cut_owners = ['TheEvilNarwhal', 'reinbow']
