@@ -52,3 +52,10 @@ else:
 final = rank_df[['rank', 'username', 'points']].sort_values(by='rank')
 
 st.table(final)
+
+
+
+values = st.slider(
+    'Select a range of values',
+    1, 18.0, (5, 6))
+st.write('Values:', values)
