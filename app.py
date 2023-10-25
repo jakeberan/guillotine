@@ -134,3 +134,12 @@ for week in all_weeks:
         continue
 
 st.table(faab_df)
+
+
+# chart
+st.scatter_chart(
+    faab_df,
+    x='week',
+    y='faab',
+    color='position'
+)
