@@ -73,7 +73,7 @@ st.table(final[ final['points'] > 0])
 
 
 # faab 
-st.header('FAAB Spend by Week')
+st.subheader('FAAB Spend by Week')
 
 # Function to extract the 'waiver_bid' value from the 'settings' dictionary
 def extract_waiver_bid(settings):
