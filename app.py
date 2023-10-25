@@ -141,5 +141,6 @@ st.scatter_chart(
     faab_df,
     x='week',
     y='faab',
+    size='full_name',
     color='position'
 )
