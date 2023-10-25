@@ -73,6 +73,7 @@ st.table(final[ final['points'] > 0])
 
 
 # faab 
+st.header('FAAB Spend by Week')
 
 # Function to extract the 'waiver_bid' value from the 'settings' dictionary
 def extract_waiver_bid(settings):
@@ -133,18 +134,4 @@ for week in all_weeks:
     except KeyError:
         continue
 
-st.table(faab_df)
-
-
-# chart
-import plotly.express as px
-
-# Sample data
-# Create a scatter plot using Plotly Express
-fig = px.scatter(faab_df, x='week', y='faab', text='full_name', title='FAAB Spent by Week')
-
-# Streamlit app
-st.title('FAAB Spent by Week')
-
-# Display the Plotly scatter plot in Streamlit
-st.plotly_chart(fig)
+st.table(faab_df [faab_df ['faab'] > 0])
