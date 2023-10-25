@@ -137,10 +137,14 @@ st.table(faab_df)
 
 
 # chart
-st.scatter_chart(
-    faab_df,
-    x='week',
-    y='faab',
-    size='full_name',
-    color='position'
-)
+import plotly.express as px
+
+# Sample data
+# Create a scatter plot using Plotly Express
+fig = px.scatter(faab_df, x='week', y='faab', text='full_name', title='FAAB Spent by Week')
+
+# Streamlit app
+st.title('FAAB Spent by Week')
+
+# Display the Plotly scatter plot in Streamlit
+st.plotly_chart(fig)
