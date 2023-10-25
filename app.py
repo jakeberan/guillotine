@@ -69,3 +69,68 @@ final = rank_df[['rank', 'username', 'points']].sort_values(by='rank')
 
 st.table(final[ final['points'] > 0])
 
+
+
+
+# faab 
+
+# Function to extract the 'waiver_bid' value from the 'settings' dictionary
+def extract_waiver_bid(settings):
+    return settings['waiver_bid']
+
+# Function to extract the first key from the 'adds' dictionary
+def extract_first_key(adds):
+    return next(iter(adds))
+
+# grab players data
+players = pd.DataFrame(requests.get('https://api.sleeper.app/v1/players/nfl').json()).T
+
+# reset index player_id and assign to 'player_id' column
+players.rename(columns={'index': 'player_id'}, inplace=True)
+
+# return players
+players = players[['player_id', 'full_name', 'position', 'team']]
+
+# initialize merged_df
+faab_df = pd.DataFrame()
+
+# create a list of all weeks
+all_weeks =  [str(i) for i in range(1, 18)]
+
+# grab weekly data and aggrergate into df
+for week in all_weeks:
+    try:
+        # grab weekly scoring from Sleeper API
+        df = pd.DataFrame(requests.get('https://api.sleeper.app/v1/league/' + league_id + '/transactions/' + week + '').json())
+
+        df = df [ (df['status'] == 'complete') &
+            (df['type'] == 'waiver')
+            ]
+
+        # Add a new column 'faab' with the extracted 'waiver_bid' values
+        df['faab'] = df['settings'].apply(lambda x: extract_waiver_bid(x))
+
+        # Add a new column 'player_id' with the extracted 'adds' keys
+        df['player_id'] = df['adds'].apply(lambda x: extract_first_key(x))
+
+        # grab roster id from list
+        df['roster_id'] = df['roster_ids'].apply(lambda x: x[0])
+
+        # merge on pick_by to grab owner names
+        df = pd.merge(df, guill_owners, 
+                        on='roster_id', 
+                        how='left')
+        
+        df = pd.merge(df, players, 
+                    on='player_id', 
+                    how='left')
+        # add week column
+        df['week'] = week
+
+        # add weekly data to merged df
+        faab_df = pd.concat([faab_df, df[['full_name', 'position', 'team', 'username', 'faab', 'week']]], ignore_index=True)
+
+    except KeyError:
+        continue
+
+st.table(faab_df)
