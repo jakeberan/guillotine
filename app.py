@@ -10,7 +10,7 @@ st.header('Cedarburg Guillotine')
 
 # return week slider
 week_tuple = st.slider('Select Week',
-                   value=[5,6], 
+                   value=[7,8], 
                    min_value = 1,
                    max_value = 18)
 
