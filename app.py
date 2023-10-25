@@ -134,4 +134,4 @@ for week in all_weeks:
     except KeyError:
         continue
 
-st.table(faab_df [faab_df ['faab'] > 0])
+st.table(faab_df [faab_df ['faab'] > 0].sort_values(by=['week','faab']))
