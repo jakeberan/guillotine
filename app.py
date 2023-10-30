@@ -71,7 +71,7 @@ st.table(final[ final['points'] > 0])
 
 
 
-
+'''
 # faab 
 st.subheader('FAAB Spend by Week')
 
@@ -135,3 +135,4 @@ for week in all_weeks:
         continue
 
 st.table(faab_df [faab_df ['faab'] > 0].sort_values(by=['week','faab']))
+'''
