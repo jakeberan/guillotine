@@ -17,8 +17,6 @@ week_tuple = st.slider('Select Week',
 st.write('Weeks Selected:', week_tuple)
 
 # input week numbers
-weeks = ['5', '6']
-
 weeks = [str(i) for i in range(week_tuple[0], week_tuple[1] + 1)]
 
 # eliminated owners
